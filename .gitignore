@@ -1,0 +1,23 @@
+# Ignore editor settings
+.vscode/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore uploads and temporary files
+uploads/
+*.log
+*.tmp
+
+# Ignore environment config (if you use them)
+.env
+config.php
+
+# Ignore dependency folders (if using Composer or npm)
+vendor/
+node_modules/
+
+# Ignore database export files
+*.sql
+*.sqlite
