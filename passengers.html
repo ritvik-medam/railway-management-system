@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Passenger & Group Details</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: url('https://i.pinimg.com/736x/df/ee/4e/dfee4efb05453172eaae20a8766a5446.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #1d1d1f;
+      padding: 2rem;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0044cc;
+      margin-bottom: 1.5rem;
+    }
+    .input-group {
+      margin-bottom: 1.5rem;
+    }
+    label {
+      display: block;
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    input, select {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .button-group {
+      text-align: center;
+      margin-top: 2rem;
+    }
+    button {
+      background-color: #00aa88;
+      color: white;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #008a70;
+    }
+    .add-passenger-btn {
+      background-color: #0044cc;
+      margin-top: 1rem;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Passenger & Group Details</h1>
+
+    <!-- Group Booking Section -->
+    <div class="input-group">
+      <label for="group-id">Group ID (if applicable)</label>
+      <input type="text" id="group-id" name="group-id" placeholder="Enter your group ID">
+    </div>
+
+    <!-- Passenger Details Section -->
+    <div id="passenger-section">
+      <div class="input-group passenger">
+        <label for="name-0">Full Name</label>
+        <input type="text" id="name-0" name="name-0" placeholder="Enter passenger's full name" required>
+
+        <label for="age-0">Age</label>
+        <input type="number" id="age-0" name="age-0" placeholder="Enter passenger's age" required>
+
+        <label for="gender-0">Gender</label>
+        <select id="gender-0" name="gender-0">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+
+        <label for="reservation-category-0">Reservation Category</label>
+        <select id="reservation-category-0" name="reservation-category-0">
+          <option value="general">General</option>
+          <option value="women">Women</option>
+          <option value="senior">Senior Citizen</option>
+        </select>
+
+        <label for="email-0">Email Address</label>
+        <input type="email" id="email-0" name="email-0" placeholder="Enter your email" required>
+
+        <label for="phone-0">Phone Number</label>
+        <input type="tel" id="phone-0" name="phone-0" placeholder="Enter your phone number" required>
+      </div>
+    </div>
+
+    <button class="add-passenger-btn" type="button" onclick="addPassenger()">Add More Passengers</button>
+
+    <!-- Submit Button -->
+    <div class="button-group">
+      <button type="submit" onclick="proceedToPayment()">Proceed to Payment</button>
+    </div>
+  </div>
+  <script>
+    let passengerCount = 1;  // Initial passenger
+  
+    // Function to add more passengers dynamically
+    function addPassenger() {
+      const passengerSection = document.getElementById('passenger-section');
+  
+      const newPassenger = document.createElement('div');
+      newPassenger.classList.add('input-group', 'passenger');
+      newPassenger.innerHTML = `
+        <label for="name-${passengerCount}">Full Name</label>
+        <input type="text" id="name-${passengerCount}" name="name-${passengerCount}" placeholder="Enter passenger's full name" required>
+  
+        <label for="age-${passengerCount}">Age</label>
+        <input type="number" id="age-${passengerCount}" name="age-${passengerCount}" placeholder="Enter passenger's age" required>
+  
+        <label for="gender-${passengerCount}">Gender</label>
+        <select id="gender-${passengerCount}" name="gender-${passengerCount}">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+  
+        <label for="reservation-category-${passengerCount}">Reservation Category</label>
+        <select id="reservation-category-${passengerCount}" name="reservation-category-${passengerCount}">
+          <option value="general">General</option>
+          <option value="women">Women</option>
+          <option value="senior">Senior Citizen</option>
+        </select>
+  
+        <label for="email-${passengerCount}">Email Address</label>
+        <input type="email" id="email-${passengerCount}" name="email-${passengerCount}" placeholder="Enter your email" required>
+  
+        <label for="phone-${passengerCount}">Phone Number</label>
+        <input type="tel" id="phone-${passengerCount}" name="phone-${passengerCount}" placeholder="Enter your phone number" required>
+      `;
+  
+      // Append the new passenger input group to the passenger section
+      passengerSection.appendChild(newPassenger);
+      passengerCount++;
+    }
+  
+    // Function to validate form before proceeding to payment
+    function validateForm() {
+  let isValid = true;
+
+  // Loop through each passenger's fields to ensure they are filled
+  for (let i = 0; i < passengerCount; i++) {
+    let name = document.getElementById(`name-${i}`);
+    let age = document.getElementById(`age-${i}`);
+    let gender = document.getElementById(`gender-${i}`);
+    let reservationCategory = document.getElementById(`reservation-category-${i}`);
+    let email = document.getElementById(`email-${i}`);
+    let phone = document.getElementById(`phone-${i}`);
+
+    // Check if any of the fields are empty
+    if (!name.value || !age.value || !gender.value || !reservationCategory.value || !email.value || !phone.value) {
+      isValid = false;
+      break;
+    }
+  }
+
+  return isValid;
+}
+
+// Function to handle the "Proceed to Payment" button click
+function proceedToPayment(event) {
+  event.preventDefault(); // Prevent form submission
+
+  if (validateForm()) {
+    alert("Passenger details submitted. Proceeding to payment.");
+    
+    // Optional: Save values to localStorage for use on payment.html
+    localStorage.setItem("groupID", document.getElementById("group-id").value);
+    localStorage.setItem("passengerCount", passengerCount);
+
+    // Redirect to payment page
+    window.location.href = "payment.html";
+  } else {
+    alert("Please fill in all passenger details before proceeding.");
+  }
+}
+    // Adding event listener for the button to pass the event properly
+    document.querySelector('button[type="submit"]').addEventListener('click', function(event) {
+      proceedToPayment(event);
+    });
+  </script>
+  
+  
+</body>
+</html>

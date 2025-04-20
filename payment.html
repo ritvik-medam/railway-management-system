@@ -8,67 +8,70 @@
   <style>
     * {
       box-sizing: border-box;
-      margin: 0;
-      padding: 0;
       font-family: 'Inter', sans-serif;
     }
     body {
-      background: linear-gradient(to bottom right, #e0f7fa, #ffffff);
+      background: linear-gradient(to bottom right, #f0f4f8, #ffffff);
+      margin: 0;
+      padding: 2rem;
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       min-height: 100vh;
-      padding: 2rem;
     }
-    .payment-container {
-      background: #ffffff;
-      padding: 2rem 2.5rem;
+    .container {
+      background: #fff;
       border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 500px;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+      max-width: 900px;
     }
     h1 {
-      text-align: center;
       color: #0044cc;
-      margin-bottom: 2rem;
-      font-size: 1.8rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
     }
-    .option-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
+    .section {
+      margin-bottom: 2rem;
+    }
+    .review-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    .review-table td, .review-table th {
+      border: 1px solid #ddd;
+      padding: 0.8rem;
+    }
+    .review-table th {
+      background-color: #f2f2f2;
+      text-align: left;
     }
     .payment-option {
-      display: flex;
-      align-items: center;
-      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+    .dynamic-fields {
+      display: none;
+      margin-top: 1rem;
+    }
+    label {
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    select, input[type="text"], input[type="number"], input[type="password"] {
+      width: 100%;
+      padding: 0.7rem;
+      margin-bottom: 1rem;
       border: 1px solid #ccc;
-      border-radius: 12px;
-      transition: background 0.3s ease;
-      cursor: pointer;
-    }
-    .payment-option:hover {
-      background-color: #f5faff;
-      border-color: #0044cc;
-    }
-    .payment-option input[type="radio"] {
-      margin-right: 1rem;
-      transform: scale(1.2);
-    }
-    .payment-option label {
-      flex: 1;
-      font-weight: 500;
-      font-size: 1rem;
-      cursor: pointer;
+      border-radius: 8px;
     }
     .confirm-button {
+      width: 100%;
       background: #00aa88;
       color: white;
       padding: 1rem;
       border: none;
-      width: 100%;
-      margin-top: 2rem;
       border-radius: 10px;
       font-size: 1.1rem;
       font-weight: bold;
@@ -81,38 +84,123 @@
   </style>
 </head>
 <body>
-  <div class="payment-container">
-    <h1>Choose Payment Method</h1>
-    <form id="paymentForm">
-      <div class="option-grid">
+  <div class="container">
+    <h1>Confirm Booking & Payment</h1>
+
+    <!-- Booking Review Section -->
+    <div class="section">
+      <h2>Booking Details</h2>
+      <table class="review-table" id="reviewTable">
+        <tr><th>Train ID</th><td id="trainId"></td></tr>
+        <tr><th>Seat Number</th><td id="seatNumber"></td></tr>
+        <tr><th>Passenger Name</th><td id="passengerName"></td></tr>
+        <tr><th>Age</th><td id="passengerAge"></td></tr>
+      </table>
+    </div>
+
+    <!-- Payment Section -->
+    <div class="section">
+      <h2>Select Payment Method</h2>
+      <form id="paymentForm">
         <div class="payment-option">
-          <input type="radio" name="payment" value="upi" id="upi" required>
-          <label for="upi">UPI (Google Pay, PhonePe, Paytm)</label>
+          <label><input type="radio" name="payment" value="upi"> UPI</label>
         </div>
         <div class="payment-option">
-          <input type="radio" name="payment" value="card" id="card">
-          <label for="card">Debit / Credit Card</label>
+          <label><input type="radio" name="payment" value="card"> Debit / Credit Card</label>
         </div>
         <div class="payment-option">
-          <input type="radio" name="payment" value="netbanking" id="netbanking">
-          <label for="netbanking">Net Banking</label>
+          <label><input type="radio" name="payment" value="netbanking"> Net Banking</label>
         </div>
         <div class="payment-option">
-          <input type="radio" name="payment" value="wallet" id="wallet">
-          <label for="wallet">Wallets (Paytm, Mobikwik, etc.)</label>
+          <label><input type="radio" name="payment" value="wallet"> Wallet</label>
         </div>
-      </div>
-      <button type="submit" class="confirm-button">Proceed to Pay</button>
-    </form>
+
+        <!-- Dynamic Inputs -->
+        <div class="dynamic-fields" id="upiFields">
+          <label for="upiApp">Choose UPI App</label>
+          <select id="upiApp">
+            <option>Google Pay</option>
+            <option>PhonePe</option>
+            <option>Paytm</option>
+          </select>
+          <label for="upiId">Enter UPI ID</label>
+          <input type="text" id="upiId" placeholder="example@upi" required />
+        </div>
+
+        <div class="dynamic-fields" id="cardFields">
+          <label>Card Number</label>
+          <input type="text" placeholder="XXXX XXXX XXXX XXXX" required />
+          <label>CVV</label>
+          <input type="password" maxlength="3" placeholder="123" required />
+          <label>Expiry Date</label>
+          <input type="text" placeholder="MM/YY" required />
+        </div>
+
+        <div class="dynamic-fields" id="netbankingFields">
+          <label>Select Bank</label>
+          <select>
+            <option>SBI</option>
+            <option>HDFC</option>
+            <option>ICICI</option>
+            <option>Axis</option>
+            <option>PNB</option>
+          </select>
+        </div>
+
+        <div class="dynamic-fields" id="walletFields">
+          <label>Choose Wallet</label>
+          <select>
+            <option>Paytm</option>
+            <option>Mobikwik</option>
+            <option>Freecharge</option>
+          </select>
+        </div>
+
+        <button type="submit" class="confirm-button">Proceed to Pay</button>
+      </form>
+    </div>
   </div>
 
   <script>
-    document.getElementById('paymentForm').addEventListener('submit', function(e) {
+    document.getElementById("trainId").textContent = localStorage.getItem("trainId") || "N/A";
+document.getElementById("seatNumber").textContent = localStorage.getItem("seatNumber") || "N/A";
+document.getElementById("passengerName").textContent = localStorage.getItem("passengerName") || "N/A";
+document.getElementById("passengerAge").textContent = localStorage.getItem("passengerAge") || "N/A";
+
+
+    // Payment Option Logic
+    const radios = document.querySelectorAll('input[name="payment"]');
+    const upi = document.getElementById("upiFields");
+    const card = document.getElementById("cardFields");
+    const netbanking = document.getElementById("netbankingFields");
+    const wallet = document.getElementById("walletFields");
+
+    radios.forEach(radio => {
+      radio.addEventListener("change", function () {
+        upi.style.display = "none";
+        card.style.display = "none";
+        netbanking.style.display = "none";
+        wallet.style.display = "none";
+        if (this.value === "upi") upi.style.display = "block";
+        if (this.value === "card") card.style.display = "block";
+        if (this.value === "netbanking") netbanking.style.display = "block";
+        if (this.value === "wallet") wallet.style.display = "block";
+      });
+    });
+
+    // Form Submission
+    document.getElementById("paymentForm").addEventListener("submit", function (e) {
       e.preventDefault();
-      const selected = document.querySelector('input[name="payment"]:checked').value;
-      alert(`You selected: ${selected.toUpperCase()}.\nRedirecting to payment gateway...`);
-      // Redirect or logic after selection
-      window.location.href = "success.html"; // Simulated success page
+      const selectedMethod = document.querySelector('input[name="payment"]:checked');
+      if (!selectedMethod) return alert("Please select a payment method!");
+
+      let method = selectedMethod.value;
+      if (method === "upi" && document.getElementById("upiApp").value === "PhonePe") {
+        alert("Redirecting to PhonePe...");
+      }
+
+      alert("Payment Successful!\nYour booking has been confirmed.");
+      window.location.href = "success.html"; // Simulated confirmation
     });
   </script>
 </body>
