@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cancel Ticket</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #f2f2f2;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      background-color: #fff;
+      padding: 30px;
+      width: 460px;
+      border-radius: 8px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+
+    .container img {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      width: 50px;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 25px;
+      color: #333;
+    }
+
+    label {
+      font-weight: 600;
+      margin-top: 15px;
+      display: block;
+      color: #555;
+    }
+
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    textarea {
+      resize: vertical;
+      height: 80px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 25px;
+    }
+
+    .btn {
+      flex: 1;
+      background-color: #0056b3;
+      color: white;
+      padding: 12px;
+      margin-right: 10px;
+      border: none;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .btn:last-child {
+      margin-right: 0;
+      background-color: #6c757d;
+    }
+
+    .btn:hover {
+      background-color: #004a99;
+    }
+
+    .btn:last-child:hover {
+      background-color: #5a6268;
+    }
+
+    .footer {
+      text-align: center;
+      margin-top: 25px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    .footer i {
+      color: #007bff;
+      margin-left: 5px;
+      cursor: pointer;
+    }
+
+    .mcq {
+      margin-top: 15px;
+    }
+
+    .mcq label {
+      font-weight: normal;
+      margin-left: 5px;
+    }
+
+    .mcq input {
+      width: auto;
+      margin-right: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="https://cdn-icons-png.flaticon.com/512/3774/3774293.png" alt="Train Logo">
+    <h2>Cancel Your Ticket</h2>
+
+    <form>
+      <label for="bookingId">Booking ID / Ticket Number</label>
+      <input type="text" id="bookingId" placeholder="Enter your ticket ID" required>
+
+      <label for="email">Email / Phone Number</label>
+      <input type="text" id="email" placeholder="Registered Email or Phone" required>
+
+      <label for="cancelDate">Cancellation Date</label>
+      <input type="date" id="cancelDate" required>
+
+      <label for="reason">Select Reason for Cancellation</label>
+      <select id="reason" required>
+        <option value="">--Select Reason--</option>
+        <option>Plan Changed</option>
+        <option>Train Delayed</option>
+        <option>Booked by Mistake</option>
+        <option>Opted for Another Transport</option>
+        <option>Others</option>
+      </select>
+
+      <div class="mcq">
+        <p style="margin-top: 10px;"><strong>Additional Feedback:</strong></p>
+        <input type="checkbox" id="late" name="feedback" value="Late">
+        <label for="late">Train was running late</label><br>
+        <input type="checkbox" id="service" name="feedback" value="Service">
+        <label for="service">Poor Service</label><br>
+        <input type="checkbox" id="clean" name="feedback" value="Cleanliness">
+        <label for="clean">Unclean Coach</label><br>
+        <input type="checkbox" id="overcrowd" name="feedback" value="Crowded">
+        <label for="overcrowd">Too Crowded</label>
+      </div>
+
+      <label for="remarks">Any Other Comments (Optional)</label>
+      <textarea id="remarks" placeholder="Write here if any..."></textarea>
+
+      <div class="btn-group">
+        <button type="submit" class="btn">Request Cancellation</button>
+        <button type="button" class="btn" onclick="history.back()">Go Back</button>
+      </div>
+    </form>
+
+    <div class="footer">
+      Need help? Call <strong>1800-111-999</strong> or click chat <i class="fas fa-comment-dots"></i>
+    </div>
+  </div>
+</body>
+</html>
