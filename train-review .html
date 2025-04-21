@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Train Review & Complaint Form</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0; padding: 0;
+      font-family: 'Inter', sans-serif;
+      box-sizing: border-box;
+    }
+    body {
+      background: linear-gradient(to right, #dfe9f3, #ffffff);
+      color: #333;
+    }
+    header {
+      background: #0044cc;
+      color: white;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header h1 {
+      font-size: 1.5rem;
+    }
+    .top-logo img {
+      height: 40px;
+    }
+    .container {
+      max-width: 900px;
+      background-color: white;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+      color: #0044cc;
+      margin-bottom: 1rem;
+    }
+    form input, form select, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin: 0.5rem 0 1rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+    label {
+      font-weight: 500;
+    }
+    .question {
+      margin: 1rem 0;
+    }
+    .question p {
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .question label {
+      display: block;
+      margin-left: 10px;
+      margin-bottom: 0.4rem;
+    }
+    .submit-btn {
+      width: 100%;
+      background-color: #0044cc;
+      color: white;
+      border: none;
+      padding: 1rem;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+    .submit-btn:hover {
+      background-color: #002d80;
+    }
+    .section {
+      margin-top: 2.5rem;
+    }
+    .sample-review {
+      background-color: #f0f4ff;
+      padding: 1rem;
+      border-left: 5px solid #0044cc;
+      margin-bottom: 2rem;
+      border-radius: 10px;
+    }
+    .sample-review h4 {
+      margin-bottom: 0.5rem;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Train Review & Complaint Form</h1>
+    <div class="top-logo">
+      <img src="https://img.icons8.com/ios-filled/50/train.png" alt="Train Logo">
+    </div>
+  </header>
+
+  <div class="container">
+    <h2>🚆 Passenger & Train Details</h2>
+    <form>
+      <input type="text" placeholder="Passenger Name" required />
+      <input type="text" placeholder="Train Name" required />
+      <input type="text" placeholder="Train Number" required />
+
+      <h2>⭐ Rate Your Journey</h2>
+
+      <select required>
+        <option value="">Overall Journey Rating</option>
+        <option>⭐</option>
+        <option>⭐⭐</option>
+        <option>⭐⭐⭐</option>
+        <option>⭐⭐⭐⭐</option>
+        <option>⭐⭐⭐⭐⭐</option>
+      </select>
+
+      <div class="question"><p>1. Was the train punctual?</p>
+        <label><input type="radio" name="q1" required> Yes</label>
+        <label><input type="radio" name="q1"> No</label>
+      </div>
+
+      <div class="question"><p>2. Was the coach clean?</p>
+        <label><input type="radio" name="q2" required> Very Clean</label>
+        <label><input type="radio" name="q2"> Moderate</label>
+        <label><input type="radio" name="q2"> Unclean</label>
+      </div>
+
+      <div class="question"><p>3. How was the staff behavior?</p>
+        <label><input type="radio" name="q3" required> Friendly</label>
+        <label><input type="radio" name="q3"> Neutral</label>
+        <label><input type="radio" name="q3"> Rude</label>
+      </div>
+
+      <div class="question"><p>4. Seat comfort level?</p>
+        <label><input type="radio" name="q4" required> Excellent</label>
+        <label><input type="radio" name="q4"> Good</label>
+        <label><input type="radio" name="q4"> Average</label>
+        <label><input type="radio" name="q4"> Poor</label>
+      </div>
+
+      <div class="question"><p>5. Were the restrooms clean?</p>
+        <label><input type="radio" name="q5" required> Yes</label>
+        <label><input type="radio" name="q5"> No</label>
+      </div>
+
+      <div class="question"><p>6. Was food service available?</p>
+        <label><input type="radio" name="q6" required> Yes</label>
+        <label><input type="radio" name="q6"> No</label>
+      </div>
+
+      <div class="question"><p>7. Was the coach lighting/safety good?</p>
+        <label><input type="radio" name="q7" required> Yes</label>
+        <label><input type="radio" name="q7"> No</label>
+      </div>
+
+      <div class="question"><p>8. Was Wi-Fi or charging available?</p>
+        <label><input type="radio" name="q8" required> Yes</label>
+        <label><input type="radio" name="q8"> No</label>
+      </div>
+
+      <div class="question"><p>9. Did you feel secure during travel?</p>
+        <label><input type="radio" name="q9" required> Yes</label>
+        <label><input type="radio" name="q9"> No</label>
+      </div>
+
+      <div class="question"><p>10. Would you recommend this train?</p>
+        <label><input type="radio" name="q10" required> Definitely</label>
+        <label><input type="radio" name="q10"> Maybe</label>
+        <label><input type="radio" name="q10"> No</label>
+      </div>
+
+      <textarea rows="4" placeholder="Additional Feedback (optional)"></textarea>
+
+      <div class="section">
+        <h2>📬 Complaint Box (Optional)</h2>
+        <select>
+          <option value="">Select Complaint Type</option>
+          <option>Train Delay</option>
+          <option>Unclean Coaches</option>
+          <option>Misbehavior</option>
+          <option>Other</option>
+        </select>
+        <textarea rows="4" placeholder="Describe your issue..."></textarea>
+        <input type="text" placeholder="Contact (Phone/Email)" />
+      </div>
+
+      <div class="section sample-review">
+        <h4>📌 Sample Review</h4>
+        <p>
+          "I had a pleasant journey. The coach was clean and the staff were cooperative. Seats were comfortable and the train was on time. Would love to travel again!"
+        </p>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Review</button>
+    </form>
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Lost & Found</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: url('https://cdn.pixabay.com/photo/2017/06/19/21/58/lost-2418501_1280.jpg') no-repeat center center fixed;
+      background-size: cover;
+    }
+
+    .header {
+      background-color: rgba(0, 51, 102, 0.85);
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      position: relative;
+    }
+
+    .header img {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 60px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 2rem auto;
+      background: rgba(255, 255, 255, 0.92);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      font-size: 1rem;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="file"] {
+      padding: 0.4rem;
+    }
+
+    button {
+      padding: 0.8rem 1.5rem;
+      background-color: #003366;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    .icon {
+      width: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .form-header {
+      text-align: center;
+    }
+
+    .sample-review {
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid #ddd;
+    }
+
+    .helpline-box {
+      background: #eaf3ff;
+      padding: 1rem;
+      border-left: 5px solid #0073e6;
+      margin-top: 2rem;
+      border-radius: 10px;
+    }
+
+    .helpline-box h3 {
+      margin-top: 0;
+      color: #003366;
+    }
+
+    .helpline-box p {
+      margin: 0.4rem 0;
+    }
+
+    a {
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+    <header>
+        <div class="top-logo">
+          <img src="https://img.icons8.com/ios-filled/50/000000/train.png" alt="Train Logo">
+        </div>
+      </header>
+
+  <div class="container">
+    <div class="form-header">
+      <img src="https://thumbs.dreamstime.com/b/black-lost-found-icon-logo-white-black-lost-found-icon-logo-131402271.jpg" alt="Lost Icon" class="icon">
+      <h2>Report Lost Item</h2>
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="name">Passenger Name</label>
+        <input type="text" id="name" placeholder="Enter your name">
+      </div>
+
+      <div class="form-group">
+        <label for="train">Train Number / Name</label>
+        <input type="text" id="train" placeholder="e.g., 12345 / Shatabdi Express">
+      </div>
+
+      <div class="form-group">
+        <label for="coach">Coach Number</label>
+        <input type="text" id="coach" placeholder="e.g., B5">
+      </div>
+
+      <div class="form-group">
+        <label for="seat">Seat Number</label>
+        <input type="text" id="seat" placeholder="e.g., 21">
+      </div>
+
+      <div class="form-group">
+        <label for="date">Date of Travel</label>
+        <input type="date" id="date">
+      </div>
+
+      <div class="form-group">
+        <label for="description">Item Description</label>
+        <textarea id="description" rows="4" placeholder="Describe the lost item..."></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="image">Upload Item Image (optional)</label>
+        <input type="file" id="image" accept="image/*">
+      </div>
+
+      <button type="submit">Submit Report</button>
+    </form>
+
+    <div class="helpline-box">
+      <h3>Need Help?</h3>
+      <p>📞 Helpline: 139 (24/7 Customer Support)</p>
+      <p>💬 Chat with IRCTC: <a href="#" style="color:#0073e6;">Open Live Chat</a></p>
+      <p>✉️ Email: support@indianrailways.gov.in</p>
+    </div>
+
+    <div class="sample-review">
+      <h3>🔍 Previous Lost Item Reports</h3>
+      <p><strong>Item:</strong> Black Wallet | <strong>Train:</strong> 12345 | <strong>Coach:</strong> B2 | <strong>Seat:</strong> 31</p>
+      <p><strong>Description:</strong> Contains ID and ATM cards. Lost on April 12 during evening journey.</p>
+      <hr>
+      <p><strong>Item:</strong> Blue Backpack | <strong>Train:</strong> 12678 | <strong>Coach:</strong> S1 | <strong>Seat:</strong> 15</p>
+      <p><strong>Description:</strong> Contains books and water bottle. Left behind after morning journey.</p>
+    </div>
+  </div>
+
+</body>
+</html>

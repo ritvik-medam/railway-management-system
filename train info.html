@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train Information</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://images.unsplash.com/photo-1593951461309-d2d6ee1a7897?auto=format&fit=crop&w=1470&q=80') no-repeat center center fixed;
+      background-size: cover;
+      color: #fff;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      margin: auto;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label, input, button {
+      display: block;
+      width: 100%;
+      margin-bottom: 15px;
+    }
+    input {
+      padding: 10px;
+      border-radius: 8px;
+      border: none;
+    }
+    button {
+      padding: 12px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .info {
+      background-color: #2c2c2c;
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    .logo {
+      width: 60px;
+      height: auto;
+    }
+    .nav-buttons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-between;
+    }
+    a {
+      color: #fff;
+      text-decoration: none;
+      background-color: #007bff;
+      padding: 10px 20px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="top-bar">
+      <h2>Train Information</h2>
+      <img src="https://img.freepik.com/premium-vector/train-logo-concept-icon-illustration_683738-2658.jpg" class="logo" alt="Train Logo" />
+    </div>
+
+    <label for="trainSearch">Enter Train Number or Train Name:</label>
+    <input type="text" id="trainSearch" placeholder="e.g., 12627 or Karnataka Express" />
+    <button onclick="searchTrain()">Search</button>
+
+    <div id="trainInfo" class="info" style="display: none;">
+      <p><strong>Train ID:</strong> 12627</p>
+      <p><strong>Train Name:</strong> Karnataka Express</p>
+      <p><strong>Platform Number:</strong> 5</p>
+      <p><strong>Station Name:</strong> Bengaluru City Junction</p>
+      <p><strong>Departure Time:</strong> 07:00 AM</p>
+      <p><strong>Arrival Time:</strong> 08:45 PM</p>
+    </div>
+
+    <div class="nav-buttons">
+      <a href="homepage.html">Home Page</a>
+      <a href="javascript:history.back()">Go Back</a>
+    </div>
+  </div>
+
+  <script>
+    function searchTrain() {
+      const input = document.getElementById("trainSearch").value;
+      if (input.trim() !== "") {
+        // In backend, we will match input with DB and return values
+        document.getElementById("trainInfo").style.display = "block";
+      } else {
+        alert("Please enter Train Number or Train Name");
+      }
+    }
+  </script>
+</body>
+</html>

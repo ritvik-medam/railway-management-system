@@ -86,22 +86,10 @@
   </div>
 
   <script>
-    // Form submission logic for sign-in
-    const loginForm = document.getElementById('loginForm');
-    loginForm.addEventListener('submit', (e) => {
+    document.getElementById('loginForm').addEventListener('submit', function (e) {
       e.preventDefault();
-
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-
-      // Simulate a sign-in process (authentication should be implemented in real-world apps)
-      if (email === 'user@example.com' && password === 'password123') {
-        alert('Sign-in successful');
-        // Redirect to homepage or user dashboard after successful login
-        window.location.href = 'index.html'; // Redirect to homepage or dashboard
-      } else {
-        alert('Invalid email or password');
-      }
+      // No validation, direct redirect
+      window.location.href = 'dashboard.html';
     });
   </script>
 </body>

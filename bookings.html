@@ -40,22 +40,6 @@
       font-size: 1.5rem;
       font-weight: 600;
     }
-    .auth-buttons a {
-      margin-left: 1rem;
-      padding: 0.5rem 1rem;
-      border-radius: 8px;
-      text-decoration: none;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-    .register {
-      border: 1px solid #ccc;
-      color: #333;
-    }
-    .signin {
-      background-color: #0044cc;
-      color: white;
-    }
     .hero {
       display: flex;
       justify-content: center;
@@ -144,10 +128,6 @@
       <img src="https://img.icons8.com/ios-filled/50/000000/train.png" alt="Train Icon">
       <h1 style="color: #00aa88;">Indian <span style="color:#0044cc;">Railways</span></h1>
     </div>
-    <div class="auth-buttons">
-        <a href="register.html" class="register">Register</a>
-        <a href="signup.html" class="signin">Sign in</a>
-    </div>
   </header>
 
   <section class="hero">
@@ -202,11 +182,11 @@
     });
 
     function swapStations() {
-      const fromSelect = document.getElementById('fromStation');
-      const toSelect = document.getElementById('toStation');
-      const temp = fromSelect.value;
-      fromSelect.value = toSelect.value;
-      toSelect.value = temp;
+      const from = document.getElementById('fromStation');
+      const to = document.getElementById('toStation');
+      const temp = from.value;
+      from.value = to.value;
+      to.value = temp;
     }
 
     function goToResults() {
@@ -216,7 +196,7 @@
         alert("Please select both From and To stations.");
         return;
       }
-      window.location.href = `trains.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
+      window.location.href = `availabletrains.html?from=${encodeURIComponent(from)}&to=${encodeURIComponent(to)}`;
     }
   </script>
 </body>

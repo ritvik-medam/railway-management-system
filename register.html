@@ -2,113 +2,101 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Register - Indian Railways</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Inter', sans-serif;
-    }
     body {
-      background: url('https://i.pinimg.com/736x/df/ee/4e/dfee4efb05453172eaae20a8766a5446.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #1d1d1f;
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to right, #e6f7ff, #ffffff);
       display: flex;
       justify-content: center;
       align-items: center;
-      min-height: 100vh;
+      height: 100vh;
     }
-    .container {
-      background: rgba(255, 255, 255, 0.9);
-      padding: 2rem;
-      border-radius: 10px;
+    .register-box {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
       width: 100%;
-      max-width: 400px;
+      max-width: 420px;
     }
-    h1 {
-      font-size: 2rem;
+    .register-box h2 {
       margin-bottom: 1.5rem;
       text-align: center;
       color: #0044cc;
     }
     input {
       width: 100%;
-      padding: 1rem;
+      padding: 0.75rem;
       margin-bottom: 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid #ccc;
       border-radius: 8px;
       font-size: 1rem;
     }
     button {
-      background: #00aa88;
-      color: white;
-      padding: 1rem;
-      border-radius: 8px;
       width: 100%;
-      font-size: 1.1rem;
+      padding: 0.75rem;
+      background-color: #0044cc;
+      color: white;
       border: none;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: bold;
       cursor: pointer;
-      transition: background 0.3s ease;
     }
     button:hover {
-      background: #008a70;
+      background-color: #0033a0;
     }
-    .back-link {
-      display: block;
+    .switch {
       text-align: center;
       margin-top: 1rem;
-      font-size: 0.9rem;
     }
-    .back-link a {
-      text-decoration: none;
+    .switch a {
       color: #0044cc;
+      text-decoration: none;
     }
-    .back-link a:hover {
+    .switch a:hover {
       text-decoration: underline;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Register</h1>
-    <form id="registerForm">
-      <input type="text" placeholder="Full Name" id="fullName" required>
-      <input type="email" placeholder="Email" id="email" required>
-      <input type="password" placeholder="Password" id="password" required>
-      <input type="password" placeholder="Confirm Password" id="confirmPassword" required>
-      <button type="submit">Register</button>
-    </form>
-    <div class="back-link">
-      <p>Already have an account? <a href="signup.html" class="signin">Sign in</a></p>
+  <div class="register-box">
+    <h2>Register</h2>
+    <input type="text" id="name" placeholder="Full Name" required />
+    <input type="email" id="email" placeholder="Email Address" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="registerUser()">Create Account</button>
+    <div class="switch">
+      Already have an account? <a href="signup.html" class="signup">Sign up</a>
     </div>
   </div>
 
   <script>
-    // Form submission logic for registration
-    const registerForm = document.getElementById('registerForm');
-    registerForm.addEventListener('submit', (e) => {
-      e.preventDefault();
+    function registerUser() {
+      const name = document.getElementById("name").value;
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
 
-      const fullName = document.getElementById('fullName').value;
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const confirmPassword = document.getElementById('confirmPassword').value;
-
-      if (password !== confirmPassword) {
-        alert('Passwords do not match!');
+      if (!name || !email || !password) {
+        alert("Please fill in all fields.");
         return;
       }
 
-      // Simulate successful registration
-      alert(`Registration successful for ${fullName}`);
+      const user = {
+        name,
+        email,
+        password,
+      };
 
-      // Redirect to sign-in page after successful registration
-      window.location.href = 'signup.html';
-    });
+      // Save to localStorage
+      localStorage.setItem(email, JSON.stringify(user));
+      alert("Registration successful! You can now sign in.");
+      window.location.href = "signup.html";
+    }
   </script>
 </body>
 </html>

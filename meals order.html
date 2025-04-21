@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Meal Selection - Indian Railways</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      background: url('https://png.pngtree.com/background/20250115/original/pngtree-delicious-indian-food-on-wooden-table-with-copy-space-picture-image_16031499.jpg') no-repeat center center fixed;
+      background-size: cover;
+      backdrop-filter: blur(0.5px);
+      color: #1d1d1f;
+    }
+    header {
+      background: #ffffffd6;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    }
+    .logo h1 {
+      color: #00aa88;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .logo span {
+      color: #0044cc;
+    }
+    .food-icon {
+      height: 40px;
+    }
+
+    .container {
+      max-width: 700px;
+      background-color: #ffffffeb;
+      margin: 2rem auto;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #0044cc;
+    }
+
+    label {
+      font-weight: 500;
+      margin-top: 1rem;
+      display: block;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.7rem;
+      margin-top: 0.5rem;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    .row {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .row > div {
+      flex: 1;
+    }
+
+    .sample-menu {
+      background: #f7f7f7;
+      border-radius: 10px;
+      padding: 1rem;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .submit-btn {
+      margin-top: 2rem;
+      background-color: #0044cc;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      padding: 1rem;
+      border: none;
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #003399;
+    }
+
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 5px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>Indian <span>Railways</span></h1>
+    </div>
+    <img src="https://cdn-icons-png.flaticon.com/512/1046/1046784.png" class="food-icon" alt="Meal Icon">
+  </header>
+
+  <div class="container">
+    <h2>Meal Selection Form</h2>
+
+    <form id="mealForm">
+      <label for="passengerName">Passenger Name</label>
+      <input type="text" id="passengerName" placeholder="Enter your name" required />
+
+      <div class="row">
+        <div>
+          <label for="trainNo">Train Number</label>
+          <input type="text" id="trainNo" placeholder="e.g., 12345" required />
+        </div>
+        <div>
+          <label for="coach">Coach</label>
+          <input type="text" id="coach" placeholder="e.g., B3" required />
+        </div>
+        <div>
+          <label for="seat">Seat Number</label>
+          <input type="text" id="seat" placeholder="e.g., 42" required />
+        </div>
+      </div>
+
+      <label for="mealType">Meal Type</label>
+      <select id="mealType" required>
+        <option value="">--Select--</option>
+        <option value="breakfast">Breakfast</option>
+        <option value="lunch">Lunch</option>
+        <option value="dinner">Dinner</option>
+        <option value="snacks">Snacks</option>
+      </select>
+
+      <label for="mealPref">Meal Preference</label>
+      <select id="mealPref" required>
+        <option value="">--Select--</option>
+        <option value="veg">Vegetarian</option>
+        <option value="nonveg">Non-Vegetarian</option>
+        <option value="jain">Jain</option>
+        <option value="custom">Custom</option>
+      </select>
+
+      <label for="addons">Add-ons</label>
+      <select id="addons">
+        <option>Water Bottle</option>
+        <option>Extra Roti</option>
+        <option>Snacks Box</option>
+        <option>No Add-ons</option>
+      </select>
+
+      <label for="allergyNotes">Health/Allergy Notes (Optional)</label>
+      <textarea id="allergyNotes" rows="3" placeholder="e.g., No dairy, gluten-free..."></textarea>
+
+      <div class="sample-menu">
+        <strong>Sample Menu:</strong><br>
+        • Veg: Rice, Dal, Mixed Veg Curry, Chapati, Curd<br>
+        • Non-Veg: Rice, Chicken Curry, Salad, Chapati<br>
+        • Jain: Jeera Rice, Dal, Subzi (No onion/garlic)<br>
+      </div>
+
+      <button type="submit" class="submit-btn">Submit Meal Preference</button>
+      <div class="error" id="formError"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById("mealForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      let name = document.getElementById("passengerName").value.trim();
+      let trainNo = document.getElementById("trainNo").value.trim();
+      let coach = document.getElementById("coach").value.trim();
+      let seat = document.getElementById("seat").value.trim();
+      let mealType = document.getElementById("mealType").value;
+      let mealPref = document.getElementById("mealPref").value;
+      let errorBox = document.getElementById("formError");
+
+      if (!name || !trainNo || !coach || !seat || !mealType || !mealPref) {
+        errorBox.textContent = "Please fill in all required fields.";
+        return;
+      }
+
+      if (!/^\d{5}$/.test(trainNo)) {
+        errorBox.textContent = "Enter a valid 5-digit train number.";
+        return;
+      }
+
+      errorBox.textContent = "";
+      alert("Meal preferences submitted successfully!");
+      // Later: send data to backend using fetch/AJAX
+      document.getElementById("mealForm").reset();
+    });
+  </script>
+</body>
+</html>

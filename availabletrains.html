@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Train Results - Indian Railways</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Inter', sans-serif;
+    }
+    body {
+      background: url('https://i.pinimg.com/736x/df/ee/4e/dfee4efb05453172eaae20a8766a5446.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: #1d1d1f;
+      padding: 2rem;
+      font-size: 16px;
+    }
+    .results-container {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 16px;
+      padding: 2rem;
+      max-width: 900px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #0044cc;
+      margin-bottom: 1.5rem;
+      font-size: 2rem;
+    }
+    .train-card {
+      background: white;
+      border-radius: 12px;
+      padding: 1.5rem;
+      margin-bottom: 1rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.2s ease;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 0.95rem;
+    }
+    .train-card:hover {
+      transform: scale(1.01);
+    }
+    .train-name {
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: #0044cc;
+    }
+    .details {
+      margin-top: 0.5rem;
+      color: #555;
+    }
+    .book-button {
+      background: #00aa88;
+      color: white;
+      padding: 0.6rem 1rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-block;
+      margin-top: 0.8rem;
+      transition: background 0.3s ease;
+    }
+    .book-button:hover {
+      background: #008a70;
+    }
+    .train-card .train-info {
+      flex: 1;
+    }
+  </style>
+</head>
+<body>
+  <div class="results-container">
+    <h1>Available Trains</h1>
+
+    <div class="train-card">
+      <div class="train-info">
+        <div class="train-name">Shatabdi Express (12001)</div>
+        <div class="details">From: New Delhi | To: Bhopal | Departure: 06:00 AM | Arrival: 02:00 PM | Duration: 8h</div>
+      </div>
+      <a href="seatselection.html" class="book-button">Book Now</a>
+    </div>
+
+    <div class="train-card">
+      <div class="train-info">
+        <div class="train-name">Rajdhani Express (12951)</div>
+        <div class="details">From: Mumbai | To: Delhi | Departure: 04:00 PM | Arrival: 08:30 AM | Duration: 16h 30m</div>
+      </div>
+      <a href="seatselection.html" class="book-button">Book Now</a>
+    </div>
+
+    <div class="train-card">
+      <div class="train-info">
+        <div class="train-name">Duronto Express (12246)</div>
+        <div class="details">From: Pune | To: Howrah | Departure: 03:15 PM | Arrival: 07:30 AM | Duration: 16h 15m</div>
+      </div>
+      <a href="seatselection.html" class="book-button">Book Now</a>
+    </div>
+
+    <!-- Add more trains as needed -->
+
+  </div>
+</body>
+</html>
