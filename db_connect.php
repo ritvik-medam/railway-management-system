@@ -2,7 +2,7 @@
 $host = 'localhost';
 $dbname = 'railway';  // change to your actual DB name
 $user = 'root';
-$pass = 'NaNdu@79#05';  // 🔑 <== put your actual password here
+$pass = 'root';  // 🔑 <== put your actual password here
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
