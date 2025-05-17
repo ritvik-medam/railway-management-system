@@ -2,7 +2,7 @@
 // Connection settings
 $servername = "localhost"; // or "127.0.0.1"
 $username = "root";        // your DB username
-$password = "root";            // your DB password
+$password = "NaNdu@79#05";            // your DB password
 $database = "railway"; // UPDATED database name
 
 // Create connection

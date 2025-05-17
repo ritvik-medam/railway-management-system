@@ -154,7 +154,7 @@ if (!isset($_SESSION['id'])) {
         <option>Chennai Central</option>
         <option>Kolkata Howrah</option>
         <option>Secunderabad</option>
-        <option>Banglore City</option>
+        <option>Bangalore City</option>
         <option>Ahmedabad Junction</option>
         <option>Jaipur Junction</option>
         <option> Pune Junction</option>

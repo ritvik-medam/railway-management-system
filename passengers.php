@@ -437,7 +437,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       if (result.status === 'success') {
         // Clear localStorage since we're done with this booking
         localStorage.removeItem('booking_data');
-        window.location.href = `payment.html?booking_id=${result.booking_id}`;
+        window.location.href = `payment.php?booking_id=${result.booking_id}`;
       } else {
         alert("Error: " + result.message);
         document.getElementById('debug-info').innerHTML = `<p>Error details: ${JSON.stringify(result)}</p>`;

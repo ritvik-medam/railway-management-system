@@ -99,6 +99,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     .back-link a:hover {
       text-decoration: underline;
     }
+    .login-role-buttons {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+}
+.login-role-buttons a {
+  text-decoration: none;
+  background: #2563eb;
+  color: white;
+  padding: 8px 14px;
+  margin-left: 10px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: background 0.3s ease;
+}
+.login-role-buttons a:hover {
+  background: #1e40af;
+}
+
   </style>
 </head>
 <body>
@@ -109,7 +129,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="password" placeholder="Password" name="password" required>
         <button type="submit">Sign In</button>
       </form>
-      
+      <div class="login-role-buttons">
+  <a href="staff_login.php">Staff Login</a>
+  <a href="admin_login.php">Admin Login</a>
+</div>
+
     <div class="back-link">
       <p>Don't have an account? <a href="register.php" class="register">Register</a></p>
     </div>
