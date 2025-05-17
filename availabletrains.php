@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
 $host = 'localhost';
 $dbname = 'railway';
 $user = 'root';
-$pass = 'NaNdu@79#05';
+$pass = 'root';
 
 try {
     $conn = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);

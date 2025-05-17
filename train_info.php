@@ -2,7 +2,7 @@
 // Database connection
 $servername = "localhost";
 $username = "root";  // Replace with your database username
-$password = "NaNdu@79#05";      // Replace with your database password
+$password = "root";      // Replace with your database password
 $dbname = "railway";
 
 // Create connection
