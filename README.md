@@ -16,4 +16,10 @@ BOOK--> AVAILABLE TRAINS--> SEAT SELECT--> PASSENGERS INFO---> PAYMENT----> CONF
 ![Image](https://github.com/user-attachments/assets/843bdb0e-e5e0-4934-be8a-1dc1627c3e30)
 ![Image](https://github.com/user-attachments/assets/13dbb147-5eff-4bfc-b179-642d4cedb5d4)
  ![Image](https://github.com/user-attachments/assets/ef7c7d97-0da0-438b-b695-bd0f9d375626)
- ![ticket](https://github.com/user-attachments/assets/ebf798ba-b2cd-4c7a-85ec-ae7f1282e841)
+ ![ticket](https://github.com/user-attachments/assets/ea44ed6c-3be8-487e-ae01-57aa79ee31c8)
+
+ADMIN DASHBOARD AND STAFF DASHBOARD:
+
+![adminP](https://github.com/user-attachments/assets/defe3740-00ec-4df9-83f6-5dd1c83ff12f)
+![staffP](https://github.com/user-attachments/assets/b4cd8a4e-950e-47dc-a68f-7c0f2fe34577)
+
