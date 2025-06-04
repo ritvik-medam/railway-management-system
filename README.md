@@ -1,6 +1,8 @@
 # Railway Management System
 
 A web-based project using HTML, CSS, JS, PHP, and MySQL for managing railway operations.
+
+
 REGISTER/LOGIN PAGE--> DASHBOARD
 
 ![Image](https://github.com/user-attachments/assets/cd8e0de3-0a15-4358-b169-61f0b80d7ba4)
